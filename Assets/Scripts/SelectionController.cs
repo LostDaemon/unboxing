@@ -1,16 +1,25 @@
 using UnityEngine;
+using Zenject;
 
 public class SelectionController : MonoBehaviour
 {
-    public InputManager inputManager; //TODO: USE DI
+    private InputManager _inputManager;
+
+    [Inject]
+    public void Construct(InputManager inputManager)
+    {
+        Debug.Log("SelectionController Constructed");
+        this._inputManager = inputManager;
+    }
+
     private void OnEnable()
     {
-        inputManager.OnTouchStart += OnTouchStart;
+        _inputManager.OnTouchStart += OnTouchStart;
     }
 
     private void OnDisable()
     {
-        inputManager.OnTouchStart -= OnTouchStart;
+        _inputManager.OnTouchStart -= OnTouchStart;
     }
 
     private void OnTouchStart(Vector2 position)

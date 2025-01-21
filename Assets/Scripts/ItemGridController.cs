@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemGridController : MonoBehaviour
 {
-    public SelectionController selectionController; //TODO: USE DI
     public GridItem[] itemPrefabs;
     public int ItemCount = 10;
     public int GridX = 3;

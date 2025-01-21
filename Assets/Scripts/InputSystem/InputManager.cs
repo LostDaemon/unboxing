@@ -1,23 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
-public class InputManager : MonoBehaviour
+public class InputManager : IDisposable
 {
-
     public delegate void TouchHandler(Vector2 position);
     public event TouchHandler OnTouchStart;
     public event TouchHandler OnTouchEnd;
 
     private TouchInputSystem _touchInputSystem;
 
-    private void Awake()
+    [Inject]
+    public InputManager(TouchInputSystem touchInputSystem)
     {
-        _touchInputSystem = new TouchInputSystem();
-    }
-
-    private void OnEnable()
-    {
-        _touchInputSystem.Enable(); //!
+        _touchInputSystem = touchInputSystem;
+        _touchInputSystem.Enable();
         _touchInputSystem.Touch.TouchPress.started += ctx => OnTouchStarted(ctx);
         _touchInputSystem.Touch.TouchPress.canceled += ctx => OnTouchEnded(ctx);
     }
@@ -34,22 +32,10 @@ public class InputManager : MonoBehaviour
         OnTouchStart?.Invoke(pos);
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
         _touchInputSystem.Disable();
         _touchInputSystem.Touch.TouchPress.started -= ctx => OnTouchStarted(ctx);
         _touchInputSystem.Touch.TouchPress.canceled -= ctx => OnTouchEnded(ctx);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
