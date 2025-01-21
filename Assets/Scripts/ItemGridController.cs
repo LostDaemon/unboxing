@@ -24,15 +24,8 @@ public class ItemGridController : MonoBehaviour
         UnsubscribeAll();
     }
 
-    private void SetSelected(GridItem source)
-    {
-        _selectedItem = source;
-        Debug.Log(_selectedItem);
-    }
-
     private void Awake()
     {
-
         _flatGrid = new Dictionary<Vector3Int, GridItem>();
     }
 
@@ -68,11 +61,6 @@ public class ItemGridController : MonoBehaviour
 
     private bool CheckCanInteract(GridItem item)
     {
-        if (item.GridPosition.x == 0 || item.GridPosition.x == GridX - 1 || item.GridPosition.z == 0 || item.GridPosition.z == GridZ - 1)
-        {
-            return true;
-        }
-
         var pos = item.GridPosition;
         var top = pos + Vector3Int.up;
         var left = pos + Vector3Int.left;
@@ -80,7 +68,10 @@ public class ItemGridController : MonoBehaviour
         var front = pos + Vector3Int.forward;
         var back = pos + Vector3Int.back;
 
-        return !(_flatGrid.ContainsKey(top) || (_flatGrid.ContainsKey(left) && _flatGrid.ContainsKey(right) && _flatGrid.ContainsKey(front) && _flatGrid.ContainsKey(back)));
+        var covered = _flatGrid.ContainsKey(top);
+        var onBorder = item.GridPosition.x == 0 || item.GridPosition.x == GridX - 1 || item.GridPosition.z == 0 || item.GridPosition.z == GridZ - 1;
+        var closed = _flatGrid.ContainsKey(left) && _flatGrid.ContainsKey(right) && _flatGrid.ContainsKey(front) && _flatGrid.ContainsKey(back);
+        return !covered && (onBorder || !closed);
     }
 
     private int GetMaxColumnHeight(Vector2Int pos)
@@ -101,10 +92,7 @@ public class ItemGridController : MonoBehaviour
 
     private void RemoveItem(Vector3Int pos)
     {
-        if (_flatGrid.ContainsKey(pos))
-        {
-            _flatGrid.Remove(pos); //O(1) =)
-        }
+        _flatGrid.Remove(pos);
     }
 
     private void SubscribeAll()
@@ -119,39 +107,48 @@ public class ItemGridController : MonoBehaviour
 
     private void OnInteraction(IInteractive source)
     {
-        if (source is GridItem item)
+        if (source is GridItem item) //TODO Refactor
         {
+
             if (!CheckCanInteract(item))
             {
-                _selectedItem.Interact();
-                SetSelected(null);
+                DropSelection();
                 return;
             }
 
             if (_selectedItem == null)
             {
                 _selectedItem = item;
-                SetSelected(item);
+                _selectedItem.IsSelected = true;
                 return;
             }
 
             if (_selectedItem == item)
             {
+                DropSelection();
                 return;
             }
 
-            if (_selectedItem.ItemType == item.ItemType)
+            if (_selectedItem?.ItemType == item.ItemType)
             {
                 Destroy(_selectedItem.gameObject);
                 Destroy(item.gameObject);
                 RemoveItem(_selectedItem.GridPosition);
                 RemoveItem(item.GridPosition);
-                SetSelected(null);
+                DropSelection();
                 return;
             }
 
-            _selectedItem.Interact();
-            SetSelected(item);
+            _selectedItem.IsSelected = false;
+            _selectedItem = item;
+            _selectedItem.IsSelected = true;
+        }
+
+        void DropSelection()
+        {
+            if (_selectedItem == null) return;
+            _selectedItem.IsSelected = false;
+            _selectedItem = null;
         }
     }
 }

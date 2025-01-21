@@ -5,7 +5,15 @@ public class GridItem : MonoBehaviour, IInteractive
 {
     public delegate void OnInteractionHandler(IInteractive source);
     public event OnInteractionHandler OnInteraction;
-
+    public bool IsSelected
+    {
+        get => _isSelected;
+        set
+        {
+            _isSelected = value;
+            _renderer.material.color = _isSelected ? Color.white : ItemsTypeHelper.GetColorByItemType(ItemType);
+        }
+    }
 
     public Vector3Int GridPosition { get; set; }
     public ItemTypes ItemType;
@@ -15,15 +23,6 @@ public class GridItem : MonoBehaviour, IInteractive
     public void Interact()
     {
         OnInteraction?.Invoke(this);
-        _isSelected = !_isSelected;
-        if (_isSelected)
-        {
-            _renderer.material.color = Color.white;
-
-            return;
-        }
-
-        _renderer.material.color = ItemsTypeHelper.GetColorByItemType(ItemType);
     }
 
     private void Awake()
