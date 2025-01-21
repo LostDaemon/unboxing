@@ -5,7 +5,8 @@ using UnityEngine;
 public class ItemGridController : MonoBehaviour
 {
     public GridItem[] itemPrefabs;
-    public int ItemCount = 10;
+    public int GenerationAttempts = 5;
+    public int PairsCount = 10;
     public int GridX = 3;
     public int GridY = 4;
     public int GridZ = 5;
@@ -30,22 +31,70 @@ public class ItemGridController : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < ItemCount; i++)
+
+        if (!FillGrid(GenerationAttempts))
+        {
+            Debug.LogError($"Failed to fill grid after {GenerationAttempts} attempts");
+        }
+    }
+
+    private bool FillGrid(int attemptsCount = 5)
+    {
+        for (int i = 0; i < attemptsCount; i++)
+        {
+            if (GenerateItems())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool GenerateItems()
+    {
+        for (int i = 0; i < PairsCount; i++)
+        {
+            var prefab = GetRandomPrefab();
+
+            var firstPosition = GetAvailablePosition();
+            if (!firstPosition.HasValue)
+            {
+                return false;
+            }
+            AddTile(prefab, firstPosition.Value);
+
+            var secondPosition = GetAvailablePosition(firstPosition.Value);
+            if (!secondPosition.HasValue)
+            {
+                return false;
+            }
+            AddTile(prefab, secondPosition.Value);
+        }
+        return true;
+    }
+
+    private void AddTile(GridItem prefab, Vector3Int position)
+    {
+        var item = Instantiate(prefab, position, Quaternion.identity);
+        item.GridPosition = position;
+        item.OnInteraction += OnInteraction;
+        _flatGrid.Add(position, item);
+    }
+
+    private Vector3Int? GetAvailablePosition(Vector3Int? forbiddenPosition = null, int attemptsCount = 5)
+    {
+        for (int i = 0; i < attemptsCount; i++)
         {
             var x = Random.Range(0, GridX);
             var z = Random.Range(0, GridZ);
             var y = GetMaxColumnHeight(new Vector2Int(x, z)) + 1;
             var pos = new Vector3Int(x, y, z);
-            var prefab = GetRandomPrefab();
-
-            if (CheckAvailability(pos))
+            if (CheckAvailability(pos) && !pos.Equals(forbiddenPosition))
             {
-                var item = Instantiate(prefab, pos, Quaternion.identity);
-                item.GridPosition = pos;
-                item.OnInteraction += OnInteraction;
-                _flatGrid.Add(pos, item);
+                return pos;
             }
         }
+        return null;
     }
 
     private GridItem GetRandomPrefab()
