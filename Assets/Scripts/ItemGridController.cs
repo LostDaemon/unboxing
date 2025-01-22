@@ -1,15 +1,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class ItemGridController : MonoBehaviour
 {
     public GridItem[] itemPrefabs;
-    public int GenerationAttempts = 5;
-    public int PairsCount = 10;
-    public int GridX = 3;
-    public int GridY = 4;
-    public int GridZ = 5;
+    private Vector3 _gridElementScale;
+    private int _generationAttempts;
+    private int _pairsCount;
+    private int _gridX;
+    private int _gridY;
+    private int _dridZ;
+
+    [Inject]
+    public void Construct(GridSettingsScriptableObject gameSettings)
+    {
+        LoadSettings(gameSettings);
+    }
+
+    private void LoadSettings(GridSettingsScriptableObject settings)
+    {
+        _gridX = settings.GridSizeX;
+        _gridY = settings.GridSizeY;
+        _dridZ = settings.GridSizeZ;
+        _pairsCount = settings.PairsCount;
+        _generationAttempts = settings.GenerationAttempts;
+        _gridElementScale = settings.GridElementScale;
+    }
 
     private Dictionary<Vector3Int, GridItem> _flatGrid;
     private GridItem _selectedItem;
@@ -32,9 +50,9 @@ public class ItemGridController : MonoBehaviour
     private void Start()
     {
 
-        if (!FillGrid(GenerationAttempts))
+        if (!FillGrid(_generationAttempts))
         {
-            Debug.LogError($"Failed to fill grid after {GenerationAttempts} attempts");
+            Debug.LogError($"Failed to fill grid after {_generationAttempts} attempts");
         }
     }
 
@@ -52,7 +70,7 @@ public class ItemGridController : MonoBehaviour
 
     private bool GenerateItems()
     {
-        for (int i = 0; i < PairsCount; i++)
+        for (int i = 0; i < _pairsCount; i++)
         {
             var prefab = GetRandomPrefab();
 
@@ -75,7 +93,8 @@ public class ItemGridController : MonoBehaviour
 
     private void AddTile(GridItem prefab, Vector3Int position)
     {
-        var item = Instantiate(prefab, position, Quaternion.identity);
+        var truePosition = new Vector3(position.x * _gridElementScale.x, position.y * _gridElementScale.y, position.z * _gridElementScale.z);
+        var item = Instantiate(prefab, truePosition, Quaternion.identity);
         item.GridPosition = position;
         item.OnInteraction += OnInteraction;
         _flatGrid.Add(position, item);
@@ -85,8 +104,8 @@ public class ItemGridController : MonoBehaviour
     {
         for (int i = 0; i < attemptsCount; i++)
         {
-            var x = Random.Range(0, GridX);
-            var z = Random.Range(0, GridZ);
+            var x = Random.Range(0, _gridX);
+            var z = Random.Range(0, _dridZ);
             var y = GetMaxColumnHeight(new Vector2Int(x, z)) + 1;
             var pos = new Vector3Int(x, y, z);
             if (CheckAvailability(pos) && !pos.Equals(forbiddenPosition))
@@ -117,7 +136,7 @@ public class ItemGridController : MonoBehaviour
         var back = pos + Vector3Int.back;
 
         var covered = _flatGrid.ContainsKey(top);
-        var onBorder = item.GridPosition.x == 0 || item.GridPosition.x == GridX - 1 || item.GridPosition.z == 0 || item.GridPosition.z == GridZ - 1;
+        var onBorder = item.GridPosition.x == 0 || item.GridPosition.x == _gridX - 1 || item.GridPosition.z == 0 || item.GridPosition.z == _dridZ - 1;
         var closed = _flatGrid.ContainsKey(left) && _flatGrid.ContainsKey(right) && _flatGrid.ContainsKey(front) && _flatGrid.ContainsKey(back);
         return !covered && (onBorder || !closed);
     }
@@ -125,7 +144,7 @@ public class ItemGridController : MonoBehaviour
     private int GetMaxColumnHeight(Vector2Int pos)
     {
         int maxY = 0;
-        for (var i = 0; i < GridY; i++)
+        for (var i = 0; i < _gridY; i++)
         {
             var curpos = new Vector3Int(pos.x, i, pos.y);
 

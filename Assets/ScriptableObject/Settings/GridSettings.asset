@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77460a6eab16ad49884ed730aa9535b, type: 3}
+  m_Name: GridSettings
+  m_EditorClassIdentifier: 
+  ClassId: 5dfbfcf0-b031-4dc1-bc97-59397301bcd4
+  GridSizeX: 20
+  GridSizeY: 20
+  GridSizeZ: 20
+  PairsCount: 100
+  GenerationAttempts: 5
+  GridElementScale: {x: 1, y: 1, z: 1}

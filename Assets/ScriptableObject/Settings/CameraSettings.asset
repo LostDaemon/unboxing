@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8985b5457c784994899589be23026903, type: 3}
+  m_Name: CameraSettings
+  m_EditorClassIdentifier: 
+  ClassId: 2ff3ad60-1b55-4935-9a3d-31c3d0e12884
+  RotationSpeed: 10
+  MinTreshhold: 0.05
+  AutoZoomMultiplier: 2
