@@ -8,7 +8,6 @@ public class SelectionController : MonoBehaviour
     [Inject]
     public void Construct(InputManager inputManager)
     {
-        Debug.Log("SelectionController Constructed");
         this._inputManager = inputManager;
     }
 
