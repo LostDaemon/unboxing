@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GridSettings
   m_EditorClassIdentifier: 
   ClassId: 5dfbfcf0-b031-4dc1-bc97-59397301bcd4
-  GridSizeX: 20
-  GridSizeY: 20
-  GridSizeZ: 20
+  GridSizeX: 10
+  GridSizeY: 10
+  GridSizeZ: 10
   PairsCount: 100
   GenerationAttempts: 5
-  GridElementScale: {x: 1, y: 1, z: 1}
+  GridElementScale: {x: 0.6, y: 0.15, z: 1.1}
