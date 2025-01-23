@@ -12,5 +12,6 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<GridSettingsScriptableObject>().FromInstance(GridSettings).AsSingle();
         Container.Bind<CameraSettingsScriptableObject>().FromInstance(CameraSettings).AsSingle();
         Container.Bind<GameSceneManager>().AsSingle();
+        Container.Bind<GameManager>().AsSingle();
     }
 }

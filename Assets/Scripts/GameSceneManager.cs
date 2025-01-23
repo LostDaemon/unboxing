@@ -16,4 +16,11 @@ public class GameSceneManager
     {
         SceneManager.LoadSceneAsync("LoadingScene");
     }
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadSceneAsync("WinScene");
+    }
+
+
 }

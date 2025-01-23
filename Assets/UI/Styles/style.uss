@@ -9,3 +9,44 @@
 {
     width: 120px
 }
+
+.winner-text
+{
+    color: #ffff00;
+}
+
+.looser-text
+{
+    color: #ff0000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Элементы располагаются вертикально */
+    justify-content: space-between; /* Распределение: верх и низ */
+    height: 100%; /* Контейнер занимает всю высоту */
+    width: 100%; /* Контейнер занимает всю ширину */
+}
+
+.overhead {
+    background-color: #ffffff; 
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    height:40px;
+}
+
+.footer {
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    height:40px
+}
+
+.score-label
+{
+    color: #ff0000;
+}

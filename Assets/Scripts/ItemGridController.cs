@@ -13,9 +13,12 @@ public class ItemGridController : MonoBehaviour
     private int _gridY;
     private int _dridZ;
 
+    private GameManager _gameManager;
+
     [Inject]
-    public void Construct(GridSettingsScriptableObject gameSettings)
+    public void Construct(GridSettingsScriptableObject gameSettings, GameManager gameManager)
     {
+        _gameManager = gameManager;
         LoadSettings(gameSettings);
     }
 
@@ -203,6 +206,13 @@ public class ItemGridController : MonoBehaviour
                 RemoveItem(_selectedItem.GridPosition);
                 RemoveItem(item.GridPosition);
                 DropSelection();
+                _gameManager.Score += 100; //!!
+
+                if (_flatGrid.Count == 0)
+                {
+                    _gameManager.Win(); //!
+                }
+
                 return;
             }
 
