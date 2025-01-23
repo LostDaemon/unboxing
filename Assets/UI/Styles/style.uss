@@ -1,0 +1,11 @@
+.parent-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    height: 100%;           
+}
+
+.main-menu-button
+{
+    width: 120px
+}
