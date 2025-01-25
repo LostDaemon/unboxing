@@ -13,11 +13,13 @@
 .winner-text
 {
     color: #ffff00;
+    font-size:36;    
 }
 
 .looser-text
 {
     color: #ff0000;
+    font-size:36;
 }
 
 .container {

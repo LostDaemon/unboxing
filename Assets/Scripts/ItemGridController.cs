@@ -6,7 +6,12 @@ using Zenject;
 public class ItemGridController : MonoBehaviour
 {
     public GridItem[] itemPrefabs;
+    public FxController fxController;
     private Vector3 _gridElementScale;
+
+    public Transform coinsTarget;
+    public GameObject coinPrefab;
+
     private int _generationAttempts;
     private int _pairsCount;
     private int _gridX;
@@ -96,7 +101,7 @@ public class ItemGridController : MonoBehaviour
 
     private void AddTile(GridItem prefab, Vector3Int position)
     {
-        var truePosition = new Vector3(position.x * _gridElementScale.x, position.y * _gridElementScale.y, position.z * _gridElementScale.z);
+        var truePosition = Grid2WorldPosition(position);
         var item = Instantiate(prefab, truePosition, Quaternion.identity);
         item.GridPosition = position;
         item.OnInteraction += OnInteraction;
@@ -201,18 +206,8 @@ public class ItemGridController : MonoBehaviour
 
             if (_selectedItem?.ItemType == item.ItemType)
             {
-                Destroy(_selectedItem.gameObject);
-                Destroy(item.gameObject);
-                RemoveItem(_selectedItem.GridPosition);
-                RemoveItem(item.GridPosition);
+                DestroyPair(_selectedItem, item);
                 DropSelection();
-                _gameManager.Score += 100; //!!
-
-                if (_flatGrid.Count == 0)
-                {
-                    _gameManager.Win(); //!
-                }
-
                 return;
             }
 
@@ -227,5 +222,74 @@ public class ItemGridController : MonoBehaviour
             _selectedItem.IsSelected = false;
             _selectedItem = null;
         }
+    }
+
+    private void CheckLooseConditions()
+    {
+        if (_flatGrid.Count == 0)
+        {
+            return;
+        }
+
+        if (!_flatGrid.Values
+        .Where(c => CheckCanInteract(c))
+        .GroupBy(c => c.ItemType)
+        .Any(group => group.Count() > 1))
+        {
+            _gameManager.Loose();
+        }
+    }
+
+    private void CheckWinConditions()
+    {
+        if (_flatGrid.Count == 0)
+        {
+            _gameManager.Win();
+        }
+    }
+
+    private Vector3 Grid2WorldPosition(Vector3Int gridPosition)
+    {
+        return new Vector3(gridPosition.x * _gridElementScale.x, gridPosition.y * _gridElementScale.y, gridPosition.z * _gridElementScale.z);
+    }
+
+    private void SpawnCoins(Vector3 position, int count)
+    {
+        const float Noise = 0.1f;
+        for (var i = 0; i < count; i++)
+        {
+            var dx = position.x - Noise + Random.Range(0f, Noise * 2);
+            var dy = position.y - Noise + Random.Range(0f, Noise * 2);
+            var dz = position.z - Noise + Random.Range(0f, Noise * 2);
+
+            var rx = Random.Range(0f, 90f);
+            var ry = Random.Range(0f, 90f);
+            var rz = Random.Range(0f, 90f);
+
+            var newpos = new Vector3(dx, dy, dz);
+            var initialRotation = new Vector3(rx, ry, rz);
+
+            var coin = Instantiate(coinPrefab, newpos, Quaternion.Euler(initialRotation))
+            .GetComponent<CoinController>();
+            coin.Target = coinsTarget;
+
+        }
+    }
+
+    private void DestroyPair(GridItem itemA, GridItem itemB)
+    {
+        var itemAPos = Grid2WorldPosition(itemA.GridPosition);
+        var itemBPos = Grid2WorldPosition(itemB.GridPosition);
+        fxController.ShowYellowSparks(itemAPos);
+        fxController.ShowYellowSparks(itemBPos);
+        SpawnCoins(itemAPos, 5);
+        SpawnCoins(itemBPos, 5);
+        Destroy(itemA.gameObject);
+        Destroy(itemB.gameObject);
+        RemoveItem(itemA.GridPosition);
+        RemoveItem(itemB.GridPosition);
+        _gameManager.AddScore();
+        CheckWinConditions();
+        CheckLooseConditions();
     }
 }

@@ -2,5 +2,6 @@
     <Style src="project://database/Assets/UI/Styles/style.uss?fileID=7433441132597879392&amp;guid=08f8b3169e4c7eb4697205e5e434b821&amp;type=3#style" />
     <ui:VisualElement class="parent-container" style="flex-grow: 1;">
         <ui:Label text="Winner !!!" class="winner-text" />
+        <ui:Button text="Continue" name="_continueButton" />
     </ui:VisualElement>
 </ui:UXML>

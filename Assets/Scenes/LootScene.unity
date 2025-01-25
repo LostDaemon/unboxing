@@ -569,6 +569,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271021093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271021094}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271021094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271021093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303516350
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +611,7 @@ GameObject:
   - component: {fileID: 1303516352}
   - component: {fileID: 1303516351}
   - component: {fileID: 1303516353}
+  - component: {fileID: 1303516354}
   m_Layer: 0
   m_Name: ScriptHandler
   m_TagString: Untagged
@@ -603,6 +635,9 @@ MonoBehaviour:
   - {fileID: 2872833762018415396, guid: 5dce8e1dc36e0924cb2655d515661861, type: 3}
   - {fileID: 172519743707840606, guid: 860bb2f40eff9754fa4e8dcc0bee7403, type: 3}
   - {fileID: 8168079726290838898, guid: 8bc641c20ae76354ebaf07077aa6a220, type: 3}
+  fxController: {fileID: 1303516354}
+  coinsTarget: {fileID: 1271021094}
+  coinPrefab: {fileID: 880359668742633047, guid: 18976f2a9b7fc184baf3792262704089, type: 3}
 --- !u!4 &1303516352
 Transform:
   m_ObjectHideFlags: 0
@@ -630,6 +665,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18696a68bb78cc14e82c30c5fcee51ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1303516354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303516350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bfbff658b11a140a50e40d0bd726af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowSparksEffect: {fileID: 180128, guid: 635cd8b46ba90644c8c49dba32b5daa8, type: 3}
 --- !u!1 &1573770370
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,3 +797,4 @@ SceneRoots:
   - {fileID: 725474256}
   - {fileID: 1573770372}
   - {fileID: 720251532}
+  - {fileID: 1271021094}

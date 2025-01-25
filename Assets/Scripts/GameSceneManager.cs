@@ -4,23 +4,31 @@ public class GameSceneManager
 {
     public void LoadMainMenuScene()
     {
-        SceneManager.LoadSceneAsync("MainMenuscene");
+        SceneManager.LoadSceneAsync("MainMenuscene", LoadSceneMode.Single);
     }
 
     public void LoadLootScene()
     {
-        SceneManager.LoadSceneAsync("LootScene");
+        SceneManager.LoadSceneAsync("LootScene", LoadSceneMode.Single);
     }
 
     public void LoadLoadingScene()
     {
-        SceneManager.LoadSceneAsync("LoadingScene");
+        SceneManager.LoadSceneAsync("LoadingScene", LoadSceneMode.Single);
     }
 
     public void LoadWinScene()
     {
-        SceneManager.LoadSceneAsync("WinScene");
+        SceneManager.LoadSceneAsync("WinScene", LoadSceneMode.Additive);
     }
 
+    public void LoadLooseScene()
+    {
+        SceneManager.LoadSceneAsync("LooseScene", LoadSceneMode.Additive);
+    }
 
+    public void LoadMetaGameplayScene()
+    {
+        SceneManager.LoadSceneAsync("MetaGameplayScene", LoadSceneMode.Single);
+    }
 }
