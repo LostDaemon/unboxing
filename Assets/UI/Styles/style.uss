@@ -3,12 +3,10 @@
     justify-content: center; 
     align-items: center;    
     height: 100%;           
+    padding-bottom: 20%;
+    padding-top: 20%;
 }
 
-.main-menu-button
-{
-    width: 120px
-}
 
 .winner-text
 {
@@ -51,4 +49,48 @@
 .score-label
 {
     color: #ff0000;
+}
+
+
+
+.main-menu-button {
+    background-color: #EE6F1C; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: bold; 
+    width: 200px
+    height: 60px
+}
+
+.main-menu-button:hover {
+    background-color: #E37E64; 
+}
+
+.main-menu-button:active {
+    background-color: #004085; 
+}
+
+
+.main-menu-button:disabled {
+    background-color: #989898; 
+    opacity: 0.65; 
+}
+
+
+.logo {
+    background-size: cover; 
+    max-width: 600px;
+    min-height: 300px;
+    width:100%
+}
+
+.loadingLabel
+{
+     font-size: 24px; 
+    font-weight: bold; 
+    color: #EE6F1C;
 }
