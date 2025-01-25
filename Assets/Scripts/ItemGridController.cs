@@ -7,10 +7,10 @@ public class ItemGridController : MonoBehaviour
 {
     public GridItem[] itemPrefabs;
     public FxController fxController;
+    public CoinsEffectController coinEffectController;
     private Vector3 _gridElementScale;
 
-    public Transform coinsTarget;
-    public GameObject coinPrefab;
+
 
     private int _generationAttempts;
     private int _pairsCount;
@@ -253,28 +253,7 @@ public class ItemGridController : MonoBehaviour
         return new Vector3(gridPosition.x * _gridElementScale.x, gridPosition.y * _gridElementScale.y, gridPosition.z * _gridElementScale.z);
     }
 
-    private void SpawnCoins(Vector3 position, int count)
-    {
-        const float Noise = 0.1f;
-        for (var i = 0; i < count; i++)
-        {
-            var dx = position.x - Noise + Random.Range(0f, Noise * 2);
-            var dy = position.y - Noise + Random.Range(0f, Noise * 2);
-            var dz = position.z - Noise + Random.Range(0f, Noise * 2);
 
-            var rx = Random.Range(0f, 90f);
-            var ry = Random.Range(0f, 90f);
-            var rz = Random.Range(0f, 90f);
-
-            var newpos = new Vector3(dx, dy, dz);
-            var initialRotation = new Vector3(rx, ry, rz);
-
-            var coin = Instantiate(coinPrefab, newpos, Quaternion.Euler(initialRotation))
-            .GetComponent<CoinController>();
-            coin.Target = coinsTarget;
-
-        }
-    }
 
     private void DestroyPair(GridItem itemA, GridItem itemB)
     {
@@ -282,8 +261,8 @@ public class ItemGridController : MonoBehaviour
         var itemBPos = Grid2WorldPosition(itemB.GridPosition);
         fxController.ShowYellowSparks(itemAPos);
         fxController.ShowYellowSparks(itemBPos);
-        SpawnCoins(itemAPos, 5);
-        SpawnCoins(itemBPos, 5);
+        coinEffectController.SpawnCoins(itemAPos, 5);
+        coinEffectController.SpawnCoins(itemBPos, 5);
         Destroy(itemA.gameObject);
         Destroy(itemB.gameObject);
         RemoveItem(itemA.GridPosition);

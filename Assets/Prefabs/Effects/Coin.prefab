@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7389768636570591871}
-  - component: {fileID: 2527886852006936510}
+  - component: {fileID: 5923190401049843675}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 3366857861058485591}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2527886852006936510
+--- !u!114 &5923190401049843675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Speed: 5
-  RotationSpeed: 1000
+  RotationSpeed: 500
