@@ -4,7 +4,9 @@
         <ui:VisualElement name="overhead" class="overhead" style="flex-grow: 0;">
             <ui:Label text="0000" name="_scoreLabel" class="score-label" style="white-space: pre; -unity-text-align: middle-center;" />
         </ui:VisualElement>
-        <ui:VisualElement name="body" style="flex-grow: 1;" />
+        <ui:VisualElement name="body" style="flex-grow: 1;">
+            <ui:VisualElement name="lootContainer" class="loot-container" style="flex-grow: 1; justify-content: flex-start;" />
+        </ui:VisualElement>
         <ui:VisualElement name="footer" class="parent-container footer" style="flex-grow: 0;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -19,12 +19,16 @@ public class ItemGridController : MonoBehaviour
     private int _dridZ;
 
     private GameManager _gameManager;
+    private RewardService _rewardService;
 
     [Inject]
-    public void Construct(GridSettingsScriptableObject gameSettings, GameManager gameManager)
+    public void Construct(GridSettingsScriptableObject gameSettings, GameManager gameManager, LootRepository lootRepository, RewardService rewardService)
     {
         _gameManager = gameManager;
+        _rewardService = rewardService;
         LoadSettings(gameSettings);
+
+        Debug.Log(lootRepository.Get().FirstOrDefault());
     }
 
     private void LoadSettings(GridSettingsScriptableObject settings)
@@ -253,8 +257,6 @@ public class ItemGridController : MonoBehaviour
         return new Vector3(gridPosition.x * _gridElementScale.x, gridPosition.y * _gridElementScale.y, gridPosition.z * _gridElementScale.z);
     }
 
-
-
     private void DestroyPair(GridItem itemA, GridItem itemB)
     {
         var itemAPos = Grid2WorldPosition(itemA.GridPosition);
@@ -270,5 +272,6 @@ public class ItemGridController : MonoBehaviour
         _gameManager.AddScore();
         CheckWinConditions();
         CheckLooseConditions();
+        _rewardService.GetReward(itemA.ItemType);
     }
 }

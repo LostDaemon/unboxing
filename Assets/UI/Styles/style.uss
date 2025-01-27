@@ -94,3 +94,28 @@
     font-weight: bold; 
     color: #EE6F1C;
 }
+
+.loot-container
+{
+display: flex;             
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-end;
+    align-items: center;        
+    width: 20%;                
+    float:right;
+}
+
+.loot-element
+{
+     flex: 1 1 auto;           
+    margin-top:5px;
+    max-width: 64px; 
+    max-height: 64px;
+    width:64px;
+    height:64px;
+    aspect-ratio: 1;           
+    background-color: #4caf50; 
+    border-radius: 8px;        
+    background-image: url("project://database/Assets/Textures/Loot/shirt.png?fileID=2800000&amp;guid=b1c6bf42745971c42a94caf82afd483b&amp;type=3#shirt");
+}

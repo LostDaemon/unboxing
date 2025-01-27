@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class GameManager
 {
     private readonly GameSceneManager _gameSceneManager;

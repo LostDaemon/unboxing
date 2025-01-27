@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class GridItem : MonoBehaviour, IInteractive
+public class GridItem : MonoBehaviour, IInteractive, IContainer
 {
     public delegate void OnInteractionHandler(IInteractive source);
     public event OnInteractionHandler OnInteraction;
@@ -33,5 +33,10 @@ public class GridItem : MonoBehaviour, IInteractive
         this.name = ItemType.ToString() + " " + Guid.NewGuid().ToString();
         this.GetComponentInChildren<TextMeshPro>().text = ((int)ItemType).ToString();
         //_renderer.material.color = ItemsTypeHelper.GetColorByItemType(ItemType);
+    }
+
+    public void GetLoot()
+    {
+
     }
 }

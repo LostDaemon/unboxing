@@ -473,6 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2087805521}
   - component: {fileID: 2087805522}
+  - component: {fileID: 2087805523}
   m_Layer: 0
   m_Name: ScriptHandler
   m_TagString: Untagged
@@ -509,6 +510,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextScene: MainMenuScene
   DelayInSeconds: 2
+--- !u!114 &2087805523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087805517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e6843e1462b24f9da26f5841046e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootItemsPrototypes:
+  - {fileID: 11400000, guid: df8bc7461a3a8574dbe29f005e49b251, type: 2}
 --- !u!1 &2101317174
 GameObject:
   m_ObjectHideFlags: 0
