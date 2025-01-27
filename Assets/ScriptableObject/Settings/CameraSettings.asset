@@ -15,4 +15,4 @@ MonoBehaviour:
   ClassId: 2ff3ad60-1b55-4935-9a3d-31c3d0e12884
   RotationSpeed: 10
   MinTreshhold: 0.05
-  AutoZoomMultiplier: 2
+  AutoZoomMultiplier: 2.5

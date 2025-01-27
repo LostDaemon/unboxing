@@ -7,6 +7,7 @@ public class ProjectInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.Bind<LootCategoriesRepository>().AsSingle();
         Container.Bind<TouchInputSystem>().AsSingle();
         Container.Bind<InputManager>().AsSingle();
         Container.Bind<GridSettingsScriptableObject>().FromInstance(GridSettings).AsSingle();
@@ -15,5 +16,6 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<GameManager>().AsSingle();
         Container.Bind<LootRepository>().AsSingle();
         Container.Bind<RewardService>().AsSingle();
+
     }
 }

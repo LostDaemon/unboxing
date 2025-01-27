@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2629cef7d31910c489086eafeff9ffd8, type: 3}
+  m_Name: Crystall
+  m_EditorClassIdentifier: 
+  ClassId: f2eff661-3513-4c85-87e7-a3e541af4df9
+  ItemType: 7
+  Description: 
+  Icon: {fileID: 2800000, guid: 8b1cee7a8d2228d4c84068d060a493e1, type: 3}

@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core;
+using Core.Items;
 using UnityEngine;
 using Zenject;
 
 public class ItemGridController : MonoBehaviour
 {
-    public GridItem[] itemPrefabs;
+    public GridItem itemPrefab;
     public FxController fxController;
     public CoinsEffectController coinEffectController;
     private Vector3 _gridElementScale;
@@ -20,15 +22,15 @@ public class ItemGridController : MonoBehaviour
 
     private GameManager _gameManager;
     private RewardService _rewardService;
+    private LootCategoriesRepository _lootCategoryRepository;
 
     [Inject]
-    public void Construct(GridSettingsScriptableObject gameSettings, GameManager gameManager, LootRepository lootRepository, RewardService rewardService)
+    public void Construct(GridSettingsScriptableObject gameSettings, GameManager gameManager, RewardService rewardService, LootCategoriesRepository lootCategoryRepository)
     {
+        _lootCategoryRepository = lootCategoryRepository;
         _gameManager = gameManager;
         _rewardService = rewardService;
         LoadSettings(gameSettings);
-
-        Debug.Log(lootRepository.Get().FirstOrDefault());
     }
 
     private void LoadSettings(GridSettingsScriptableObject settings)
@@ -61,7 +63,6 @@ public class ItemGridController : MonoBehaviour
 
     private void Start()
     {
-
         if (!FillGrid(_generationAttempts))
         {
             Debug.LogError($"Failed to fill grid after {_generationAttempts} attempts");
@@ -84,30 +85,32 @@ public class ItemGridController : MonoBehaviour
     {
         for (int i = 0; i < _pairsCount; i++)
         {
-            var prefab = GetRandomPrefab();
 
+            var itemType = EnumHelpers.GetRandomEnumValue<ItemType>();
             var firstPosition = GetAvailablePosition();
             if (!firstPosition.HasValue)
             {
                 return false;
             }
-            AddTile(prefab, firstPosition.Value);
+            AddTile(itemPrefab, firstPosition.Value, itemType);
 
             var secondPosition = GetAvailablePosition(firstPosition.Value);
             if (!secondPosition.HasValue)
             {
                 return false;
             }
-            AddTile(prefab, secondPosition.Value);
+            AddTile(itemPrefab, secondPosition.Value, itemType);
         }
         return true;
     }
 
-    private void AddTile(GridItem prefab, Vector3Int position)
+    private void AddTile(GridItem prefab, Vector3Int position, ItemType itemType)
     {
         var truePosition = Grid2WorldPosition(position);
         var item = Instantiate(prefab, truePosition, Quaternion.identity);
+        item.Construct(_lootCategoryRepository);
         item.GridPosition = position;
+        item.ItemType = itemType;
         item.OnInteraction += OnInteraction;
         _flatGrid.Add(position, item);
     }
@@ -126,11 +129,6 @@ public class ItemGridController : MonoBehaviour
             }
         }
         return null;
-    }
-
-    private GridItem GetRandomPrefab()
-    {
-        return itemPrefabs[Random.Range(0, itemPrefabs.Length)];
     }
 
     private bool CheckAvailability(Vector3Int pos)
@@ -210,6 +208,7 @@ public class ItemGridController : MonoBehaviour
 
             if (_selectedItem?.ItemType == item.ItemType)
             {
+
                 DestroyPair(_selectedItem, item);
                 DropSelection();
                 return;

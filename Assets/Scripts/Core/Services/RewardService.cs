@@ -1,5 +1,6 @@
 
 using System.Linq;
+using Core.Items;
 using Zenject;
 
 public sealed class RewardService
@@ -15,7 +16,7 @@ public sealed class RewardService
         _lootRepository = lootRepository;
     }
 
-    public void GetReward(ItemTypes type)
+    public void GetReward(ItemType type)
     {
         var typedItems = _lootRepository
         .Get()

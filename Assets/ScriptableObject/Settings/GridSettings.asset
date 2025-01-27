@@ -18,4 +18,4 @@ MonoBehaviour:
   GridSizeZ: 5
   PairsCount: 10
   GenerationAttempts: 5
-  GridElementScale: {x: 0.6, y: 0.15, z: 1.1}
+  GridElementScale: {x: 1, y: 1, z: 1}

@@ -633,10 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9999d9807ced0a4886a27d5f2ea8530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefabs:
-  - {fileID: 2872833762018415396, guid: 5dce8e1dc36e0924cb2655d515661861, type: 3}
-  - {fileID: 172519743707840606, guid: 860bb2f40eff9754fa4e8dcc0bee7403, type: 3}
-  - {fileID: 8168079726290838898, guid: 8bc641c20ae76354ebaf07077aa6a220, type: 3}
+  itemPrefab: {fileID: 4497166338180463222, guid: a7c35cddb27cfd44885eda954a91040c, type: 3}
   fxController: {fileID: 1303516354}
   coinEffectController: {fileID: 1303516355}
 --- !u!4 &1303516352

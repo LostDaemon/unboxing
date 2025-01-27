@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2629cef7d31910c489086eafeff9ffd8, type: 3}
+  m_Name: Travel
+  m_EditorClassIdentifier: 
+  ClassId: 8a948bfb-ea74-492c-b925-09cb8331f182
+  ItemType: 22
+  Description: 
+  Icon: {fileID: 2800000, guid: 2b3a272a26df7d54a954d65441f08320, type: 3}
