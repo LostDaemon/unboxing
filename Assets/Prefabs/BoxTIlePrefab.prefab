@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1550845537805157086}
   - component: {fileID: 4497166338180463222}
   - component: {fileID: 5517363094220335280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoxTIlePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 2886770590626190707}
   - component: {fileID: 1110189658975354751}
   - component: {fileID: 3901513994373961716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 8714708589127126065}
   - component: {fileID: 8484530079206430574}
   - component: {fileID: 1104453450406829328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 7093950167938887133}
   - component: {fileID: 5454168706660241505}
   - component: {fileID: 7295618337175308358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

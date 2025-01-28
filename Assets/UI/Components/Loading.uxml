@@ -1,7 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Styles/style.uss?fileID=7433441132597879392&amp;guid=08f8b3169e4c7eb4697205e5e434b821&amp;type=3#style" />
-    <ui:VisualElement class="parent-container" style="flex-grow: 1;">
-        <ui:VisualElement name="logo" class="logo" style="flex-grow: 1; align-items: stretch; right: 0; left: 0; bottom: 0; top: 0; background-image: url(&quot;project://database/Assets/Textures/logo.png?fileID=2800000&amp;guid=a19ecb118ad68d948b4f6b0891a7f87b&amp;type=3#logo&quot;);" />
-        <ui:Label text="Loading..." name="loadingLabel" class="loadingLabel" />
+    <ui:VisualElement name="mainContainer" class="main-container" style="flex-grow: 1;">
+        <ui:VisualElement name="logo" class="logo" style="flex-grow: 1;" />
     </ui:VisualElement>
 </ui:UXML>

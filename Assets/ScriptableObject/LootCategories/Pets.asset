@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pets
   m_EditorClassIdentifier: 
   ClassId: 0691557e-fc0b-4ff4-b8c1-0c5418ca59d8
-  ItemType: 17
+  ItemType: 16
   Description: 
   Icon: {fileID: 2800000, guid: 540ffb450b8760a49b2955db6a2e38bf, type: 3}
+  Color: {r: 1, g: 0.81960785, b: 0.8627451, a: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Money
   m_EditorClassIdentifier: 
   ClassId: 635e96f6-c5d1-4482-9755-452b2f0f66cf
-  ItemType: 15
+  ItemType: 14
   Description: 
   Icon: {fileID: 2800000, guid: cec417b13b4d10445a22ac7eda17f49e, type: 3}
+  Color: {r: 0.46666667, g: 0.8666667, b: 0.46666667, a: 0}

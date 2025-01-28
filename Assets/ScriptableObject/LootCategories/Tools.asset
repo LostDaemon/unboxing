@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tools
   m_EditorClassIdentifier: 
   ClassId: 49e97bdc-6e03-43c7-8ee0-c52b68b4310b
-  ItemType: 19
+  ItemType: 18
   Description: 
   Icon: {fileID: 2800000, guid: be458dc0f3ce8474fa72c96ccea265f0, type: 3}
+  Color: {r: 1, g: 0.7019608, b: 0.2784314, a: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3366857861058485591}
   - component: {fileID: 4800967262607370936}
   - component: {fileID: 899310961839861683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7389768636570591871}
   - component: {fileID: 5923190401049843675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4493023181d594083912c7555abcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  Speed: 5
+  Target: {x: 0, y: 0, z: 0}
+  Speed: 10
   RotationSpeed: 500

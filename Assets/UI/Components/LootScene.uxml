@@ -1,12 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Styles/style.uss?fileID=7433441132597879392&amp;guid=08f8b3169e4c7eb4697205e5e434b821&amp;type=3#style" />
     <ui:VisualElement class="container" style="flex-grow: 1;">
-        <ui:VisualElement name="overhead" class="overhead" style="flex-grow: 0;">
+        <ui:VisualElement name="overhead" class="overhead" style="flex-grow: 0; background-image: none; -unity-background-scale-mode: scale-and-crop; background-color: rgb(40, 30, 54);">
             <ui:Label text="0000" name="_scoreLabel" class="score-label" style="white-space: pre; -unity-text-align: middle-center;" />
         </ui:VisualElement>
-        <ui:VisualElement name="body" style="flex-grow: 1;">
-            <ui:VisualElement name="lootContainer" class="loot-container" style="flex-grow: 1; justify-content: flex-start;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="footer" class="parent-container footer" style="flex-grow: 0;" />
     </ui:VisualElement>
 </ui:UXML>

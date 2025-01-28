@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: VideoGames
   m_EditorClassIdentifier: 
   ClassId: 1cdfc293-9c86-4d3e-a4e0-f31df9b3790b
-  ItemType: 23
+  ItemType: 22
   Description: 
   Icon: {fileID: 2800000, guid: 3a13e7f79c7c1b24eab49e48b65372f9, type: 3}
+  Color: {r: 0.9019608, g: 0.9019608, b: 0.98039216, a: 0}

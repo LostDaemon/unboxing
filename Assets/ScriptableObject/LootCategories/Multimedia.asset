@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Multimedia
   m_EditorClassIdentifier: 
   ClassId: 5a28ba93-7a80-4635-9814-bddea14ba9b9
-  ItemType: 16
+  ItemType: 15
   Description: 
   Icon: {fileID: 2800000, guid: 06265cdf6df84f042ab1682e7d3f501c, type: 3}
+  Color: {r: 1, g: 0.7176471, b: 0.69803923, a: 0}

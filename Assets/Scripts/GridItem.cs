@@ -14,10 +14,9 @@ public class GridItem : MonoBehaviour, IInteractive, IContainer
     private LootCategoriesRepository _lootCategoriesRepository;
 
     public Renderer _iconRenderer;
-    public Renderer _capRenderer;
     public Renderer _bodyRenderer;
 
-
+    private Color _initialColor;
 
     [Inject]
     public void Construct(LootCategoriesRepository lootCategoriesRepository)
@@ -61,6 +60,7 @@ public class GridItem : MonoBehaviour, IInteractive, IContainer
     {
         this.name = ItemType.ToString() + " " + Guid.NewGuid().ToString();
         _propertyBlock ??= new MaterialPropertyBlock();
+        _initialColor = _bodyRenderer.material.color;
     }
 
     private void DrawItemType(ItemType itemType)
@@ -74,13 +74,13 @@ public class GridItem : MonoBehaviour, IInteractive, IContainer
         }
 
         _propertyBlock.SetTexture("_BaseMap", category.Icon);
+        _initialColor = category.Color;
+        _bodyRenderer.material.color = _initialColor;
         _iconRenderer.SetPropertyBlock(_propertyBlock);
     }
 
     public void DoSelection()
     {
-        var color = new Color(0.831f, 0.671f, 0.494f); //D4AB7E
-        _bodyRenderer.material.color = _isSelected ? Color.yellow : color;
-        _capRenderer.material.color = _isSelected ? Color.yellow : color;
+        _bodyRenderer.material.color = _isSelected ? Color.yellow : _initialColor;
     }
 }

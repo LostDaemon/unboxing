@@ -7,4 +7,5 @@ public class LootCategoryScriptableObject : BaseScriptableObject
     public ItemType ItemType;
     public string Description;
     public Texture Icon;
+    public Color Color;
 }

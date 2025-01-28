@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Travel
   m_EditorClassIdentifier: 
   ClassId: 8a948bfb-ea74-492c-b925-09cb8331f182
-  ItemType: 22
+  ItemType: 21
   Description: 
   Icon: {fileID: 2800000, guid: 2b3a272a26df7d54a954d65441f08320, type: 3}
+  Color: {r: 0.69803923, g: 0.8392157, b: 0.8901961, a: 0}

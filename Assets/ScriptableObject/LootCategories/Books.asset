@@ -16,3 +16,4 @@ MonoBehaviour:
   ItemType: 3
   Description: 
   Icon: {fileID: 2800000, guid: a1690ede12763814cbd1914ebb87e584, type: 3}
+  Color: {r: 0.9607843, g: 0.9607843, b: 0.8627451, a: 0}

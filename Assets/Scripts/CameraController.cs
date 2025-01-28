@@ -17,9 +17,13 @@ public class CameraController : MonoBehaviour
 
     private void LoadSettings(GridSettingsScriptableObject gameSettings, CameraSettingsScriptableObject cameraSettings)
     {
-        var x = gameSettings.GridSizeX * gameSettings.GridElementScale.x / 2f;
-        var z = gameSettings.GridSizeZ * gameSettings.GridElementScale.z / 2f;
+        var x = (gameSettings.GridSizeX - 1) * gameSettings.GridElementScale.x / 2f;
+        var z = (gameSettings.GridSizeZ - 1) * gameSettings.GridElementScale.z / 2f;
         this.transform.position = new Vector3(x, 0f, z);
+
+        Debug.Log(x);
+        Debug.Log(z);
+
         var distance = Mathf.Max(x, z) * cameraSettings.AutoZoomMultiplier;
         this.GetComponentInChildren<Camera>().transform.localPosition = new Vector3(0, distance, -distance);
 

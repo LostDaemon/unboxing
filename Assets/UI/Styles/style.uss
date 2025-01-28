@@ -1,10 +1,8 @@
-.parent-container {
+.main-container {
     display: flex;
     justify-content: center; 
     align-items: center;    
     height: 100%;           
-    padding-bottom: 20%;
-    padding-top: 20%;
 }
 
 
@@ -55,13 +53,18 @@
 
 .main-menu-button {
     background-color: #EE6F1C; 
+  
     color: white; 
     padding: 10px 20px; 
     border: none; 
     border-radius: 5px; 
     text-align: center; 
-    font-size: 18px; 
-    font-weight: bold; 
+    
+    font-family: 'Montserrat';
+    font-size: 24px; 
+    font-weight: 900; 
+    font-size: 24px;
+    color: #FFFFFF;
     width: 200px
     height: 60px
 }
@@ -82,10 +85,19 @@
 
 
 .logo {
-    background-size: cover; 
-    max-width: 600px;
-    min-height: 300px;
-    width:100%
+    width: 500px;
+    height: auto; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-image: url("project://database/Assets/Textures/logo.png");
+}
+
+.logo-small {
+    width: 300px;
+    max-height: 400px; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-image: url("project://database/Assets/Textures/logo.png");
 }
 
 .loadingLabel
@@ -118,4 +130,10 @@ display: flex;
     background-color: #4caf50; 
     border-radius: 8px;        
     background-image: url("project://database/Assets/Textures/Loot/shirt.png?fileID=2800000&amp;guid=b1c6bf42745971c42a94caf82afd483b&amp;type=3#shirt");
+}
+
+.loading-progress-bar
+{
+    height:10px;
+    width: 100%;
 }
