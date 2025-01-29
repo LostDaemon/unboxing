@@ -16,3 +16,5 @@ MonoBehaviour:
   RotationSpeed: 10
   MinTreshhold: 0.05
   AutoZoomMultiplier: 2.5
+  PinchZoomSpeed: 0.5
+  MouseScrollZoomSpeed: 2

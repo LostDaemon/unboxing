@@ -13,12 +13,12 @@ public class SelectionController : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputManager.OnTouchStart += OnTouchStart;
+        _inputManager.OnPrimaryTouchStart += OnTouchStart;
     }
 
     private void OnDisable()
     {
-        _inputManager.OnTouchStart -= OnTouchStart;
+        _inputManager.OnPrimaryTouchStart -= OnTouchStart;
     }
 
     private void OnTouchStart(Vector2 position)
