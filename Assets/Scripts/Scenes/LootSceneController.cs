@@ -8,26 +8,35 @@ public class LootSceneController : MonoBehaviour
     private IndicatorController _moneyIndicator;
 
     private GameManager _gameManager;
+    private RewardService _rewardService;
 
     [Inject]
-    public void Construct(GameManager gameManager)
+    public void Construct(GameManager gameManager, RewardService rewardService)
     {
         _gameManager = gameManager;
+        _rewardService = rewardService;
     }
 
     private void OnEnable()
     {
         _gameManager.OnScoreChange += (value) => OnScoreChange(value);
+        _rewardService.OnGetReward += (item) => OnReward(item);
     }
 
     private void OnDisable()
     {
         _gameManager.OnScoreChange -= (value) => OnScoreChange(value);
+        _rewardService.OnGetReward -= (item) => OnReward(item);
     }
 
     private void OnScoreChange(int value)
     {
         _moneyIndicator.Value = value;
+    }
+
+    private void OnReward(LootScriptableObject item)
+    {
+
     }
 
     void Start()

@@ -67,8 +67,9 @@ public class IndicatorController : MonoBehaviour
 
     private void ShowChanging(bool isChanging)
     {
-        _label.fontSize = isChanging ? _fontSize * 1.1f : _fontSize;
-        _label.color = isChanging ? Color.white : _fontColor;
+        return;
+        // _label.fontSize = isChanging ? _fontSize * 1.1f : _fontSize;
+        // _label.color = isChanging ? Color.white : _fontColor;
     }
 
     private void ShowAnimation(float progress)

@@ -8,5 +8,5 @@ public class LootScriptableObject : BaseScriptableObject
     public ItemType ItemType;
     public int Cost;
     public string Description;
-    public Texture2D Image;
+    public Sprite Image;
 }
