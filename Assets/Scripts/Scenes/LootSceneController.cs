@@ -1,4 +1,5 @@
 using System;
+using Core.Items;
 using UnityEngine;
 using Zenject;
 
@@ -19,13 +20,13 @@ public class LootSceneController : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameManager.OnScoreChange += (value) => OnScoreChange(value);
+        _gameManager.OnMoneyChange += (value) => OnScoreChange(value);
         _rewardService.OnGetReward += (item) => OnReward(item);
     }
 
     private void OnDisable()
     {
-        _gameManager.OnScoreChange -= (value) => OnScoreChange(value);
+        _gameManager.OnMoneyChange -= (value) => OnScoreChange(value);
         _rewardService.OnGetReward -= (item) => OnReward(item);
     }
 
@@ -34,9 +35,9 @@ public class LootSceneController : MonoBehaviour
         _moneyIndicator.Value = value;
     }
 
-    private void OnReward(LootScriptableObject item)
+    private void OnReward(Item item)
     {
-
+        //TODO!
     }
 
     void Start()

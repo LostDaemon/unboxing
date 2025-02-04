@@ -240,6 +240,54 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &656990871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656990872}
+  - component: {fileID: 656990873}
+  m_Layer: 0
+  m_Name: ToolsLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656990872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656990871}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2622.566, y: 172.90718, z: -1056.5908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763525759}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656990873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656990871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e6843e1462b24f9da26f5841046e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootItemsPrototypes:
+  - {fileID: 11400000, guid: 1a24feb7fe462114b8ff45e3d1d92a85, type: 2}
+  - {fileID: 11400000, guid: 62263a8a726482f46a73dc908d582834, type: 2}
+  - {fileID: 11400000, guid: 3e3d8d30ce1c47648afac46a03c13866, type: 2}
 --- !u!1 &725461972
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +390,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &987934632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987934634}
+  - component: {fileID: 987934633}
+  m_Layer: 0
+  m_Name: ClothsLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &987934633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987934632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e6843e1462b24f9da26f5841046e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootItemsPrototypes:
+  - {fileID: 11400000, guid: 9e668b3ac5c6b124d93f6e2586d577fe, type: 2}
+  - {fileID: 11400000, guid: e951cfe3fc51a1344b3d029922b8a6c6, type: 2}
+  - {fileID: 11400000, guid: 6ca98132adc608f4a92852d6e333b496, type: 2}
+  - {fileID: 11400000, guid: 56c0bebe3dce3a041a8cc8ebe45c5677, type: 2}
+  - {fileID: 11400000, guid: cf3189de790b6c04d8c11d40b6d5fc04, type: 2}
+  - {fileID: 11400000, guid: 52f03dd405714814a9e22c4a5ad7a295, type: 2}
+  - {fileID: 11400000, guid: e6a5866ca70a08c4cac0cba17fa08d2a, type: 2}
+--- !u!4 &987934634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987934632}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1124.8406, y: 611.78156, z: -152.79405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763525759}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281058649
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +517,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281058649}
   m_CullTransparentMesh: 1
+--- !u!1 &1386131456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386131457}
+  - component: {fileID: 1386131458}
+  m_Layer: 0
+  m_Name: DevicesLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386131457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386131456}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2622.566, y: 172.90718, z: -1056.5908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763525759}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386131458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386131456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e6843e1462b24f9da26f5841046e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootItemsPrototypes:
+  - {fileID: 11400000, guid: ee8d8fef97c6c844abf348e74bfcb01b, type: 2}
+  - {fileID: 11400000, guid: d6614676463ddd148b4006653b81fd3d, type: 2}
+  - {fileID: 11400000, guid: 78dff9c4de66224479ce2bbf6c9dba2d, type: 2}
+  - {fileID: 11400000, guid: 12e044dd82803e349ad0b2be7e08e6ab, type: 2}
+  - {fileID: 11400000, guid: e0b35829e90c6a04996473189c62d6c9, type: 2}
 --- !u!1 &1400295657
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +718,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763525759}
-  - component: {fileID: 1763525758}
   - component: {fileID: 1763525757}
   m_Layer: 0
   m_Name: Loaders
@@ -612,20 +761,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c33bebfb78358bf4e8b3cc849cb18791, type: 2}
   - {fileID: 11400000, guid: f4d835878098e804fb7d8f980493e874, type: 2}
   - {fileID: 11400000, guid: 64df727374c286e49a2e9f0eef1ac53b, type: 2}
---- !u!114 &1763525758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763525756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab8e6843e1462b24f9da26f5841046e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LootItemsPrototypes:
-  - {fileID: 11400000, guid: df8bc7461a3a8574dbe29f005e49b251, type: 2}
 --- !u!4 &1763525759
 Transform:
   m_ObjectHideFlags: 0
@@ -638,7 +773,10 @@ Transform:
   m_LocalPosition: {x: -0.20745361, y: 0.61688554, z: -0.03531897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 987934634}
+  - {fileID: 1386131457}
+  - {fileID: 656990872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087805517

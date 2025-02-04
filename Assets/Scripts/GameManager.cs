@@ -1,44 +1,70 @@
 using System.Collections.Generic;
+using Core.Items;
 
 public class GameManager
 {
     private readonly GameSceneManager _gameSceneManager;
-    public delegate void ScoreChangeArgs(int score);
-    public event ScoreChangeArgs OnScoreChange;
-    public int TotalScore { get; private set; }
-    public int CurrentScore { get; private set; }
+    public delegate void MoneyChangeArgs(int score);
+    public event MoneyChangeArgs OnMoneyChange;
+
+    public delegate void LootChangeArgs();
+    public event LootChangeArgs OnLootChange;
+
+    public int TotalMoney { get; private set; }
+    public int CurrentMoney { get; private set; }
+
+    private List<Item> _loot;
 
     public GameManager(GameSceneManager gameSceneManager)
     {
         _gameSceneManager = gameSceneManager;
+        _loot = new List<Item>();
     }
 
-    public void AddScore(int score = 100)
+    public void AddMoney(int score = 0)
     {
-        CurrentScore += score;
-        OnScoreChange?.Invoke(CurrentScore);
+        CurrentMoney += score;
+        OnMoneyChange?.Invoke(CurrentMoney);
     }
 
     public void Win()
     {
         _gameSceneManager.LoadWinScene();
-        TotalScore += CurrentScore;
-        ResetCurrentScore();
+        TotalMoney += CurrentMoney;
+        ResetCurrentMoney();
     }
 
     public void Loose()
     {
         _gameSceneManager.LoadLooseScene();
-        ResetCurrentScore();
+        ResetCurrentMoney();
     }
 
-    private void ResetCurrentScore()
+    public void AddLoot(Item loot)
     {
-        CurrentScore = 0;
+        _loot.Add(loot);
+        OnLootChange?.Invoke();
     }
 
-    private void ResetTotalScore()
+    public void RemoveLoot(Item loot)
     {
-        TotalScore = 0;
+        _loot.Remove(loot);
+        OnLootChange?.Invoke();
     }
+
+    public IReadOnlyList<Item> GetLoot() => _loot;
+
+    private void ResetCurrentMoney()
+    {
+        CurrentMoney = 0;
+    }
+
+    private void ResetTotalMoney()
+    {
+        TotalMoney = 0;
+    }
+
+
+
+
 }

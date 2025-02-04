@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
+  m_Name: Cloths04
+  m_EditorClassIdentifier: 
+  ClassId: 8c11d9db-eb07-48a9-9d78-38a8684f731a
+  Name: Hoodie
+  ItemType: 6
+  Cost: 100
+  Description: Hoodie
+  Image: {fileID: 21300000, guid: fcd475dc23624a948bd88d3a983d8768, type: 3}

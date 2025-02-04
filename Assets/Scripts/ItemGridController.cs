@@ -268,7 +268,7 @@ public class ItemGridController : MonoBehaviour
         Destroy(itemB.gameObject);
         RemoveItem(itemA.GridPosition);
         RemoveItem(itemB.GridPosition);
-        _gameManager.AddScore();
+        _gameManager.AddMoney();
         CheckWinConditions();
         CheckLooseConditions();
         _rewardService.GetReward(itemA.ItemType);

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
+  m_Name: Device01
+  m_EditorClassIdentifier: 
+  ClassId: 88819697-7ee9-4501-9971-7e584639288c
+  Name: Monitor
+  ItemType: 11
+  Cost: 200
+  Description: 4k Monitor
+  Image: {fileID: 21300000, guid: 766d1be55cad234498548cb777c7e2da, type: 3}

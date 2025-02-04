@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
+  m_Name: Cloths02
+  m_EditorClassIdentifier: 
+  ClassId: 6f99001f-3f60-4bd4-a455-25f4d05e4ec2
+  Name: T-Shirt
+  ItemType: 6
+  Cost: 50
+  Description: Blunt T-shirt
+  Image: {fileID: 21300000, guid: 7618fb069b33b814890d45ad2109dd21, type: 3}

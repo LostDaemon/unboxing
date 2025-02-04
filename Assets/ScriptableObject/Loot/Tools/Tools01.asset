@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
+  m_Name: Tools01
+  m_EditorClassIdentifier: 
+  ClassId: 7a1dad5f-ae77-4566-8548-1d3d32b2f671
+  Name: Hammer
+  ItemType: 18
+  Cost: 15
+  Description: Hammer
+  Image: {fileID: 21300000, guid: 68b2ae4eb81b0cf4c86691c242e01d73, type: 3}

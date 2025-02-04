@@ -1,4 +1,5 @@
 using System.Collections;
+using Core.Items;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
@@ -32,7 +33,7 @@ public class LootSceneUiController : MonoBehaviour
         _rewardService.OnGetReward += OnGetReward;
     }
 
-    private void OnGetReward(LootScriptableObject reward)
+    private void OnGetReward(Item reward)
     {
         CreateNewItem(reward);
     }
@@ -42,7 +43,7 @@ public class LootSceneUiController : MonoBehaviour
         _rewardService.OnGetReward -= OnGetReward;
     }
 
-    private void CreateNewItem(LootScriptableObject item)
+    private void CreateNewItem(Item item)
     {
         var newItem = Instantiate(_itemPrefab, this.transform) as LootItemUiController;
         newItem.Model = item;

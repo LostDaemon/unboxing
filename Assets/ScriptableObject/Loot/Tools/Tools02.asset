@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
+  m_Name: Tools02
+  m_EditorClassIdentifier: 
+  ClassId: 85bb6cb0-9c1e-49d3-88dd-b990b53f65b7
+  Name: Pilers
+  ItemType: 18
+  Cost: 20
+  Description: Pilers
+  Image: {fileID: 21300000, guid: b724a388a6f3d854f9f231180165346d, type: 3}

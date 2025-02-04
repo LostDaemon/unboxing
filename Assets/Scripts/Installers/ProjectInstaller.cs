@@ -1,3 +1,4 @@
+using Core.Items;
 using Zenject;
 
 public class ProjectInstaller : MonoInstaller
@@ -16,6 +17,6 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<GameManager>().AsSingle();
         Container.Bind<LootRepository>().AsSingle();
         Container.Bind<RewardService>().AsSingle();
-
+        Container.Bind<ItemsFactory>().AsSingle();
     }
 }

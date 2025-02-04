@@ -13,7 +13,7 @@ namespace Core.Items
         Documents,
         Drugs,
         Electrics,
-        Electronics,
+        Devices,
         Fishing,
         Labs,
         Money,

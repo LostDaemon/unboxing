@@ -6,7 +6,7 @@ public class LootScriptableObject : BaseScriptableObject
 {
     public string Name;
     public ItemType ItemType;
-    public int Cost;
+    public float Cost;
     public string Description;
     public Sprite Image;
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae134d9f8b07ce645b4f45e5ff0fdece, type: 3}
-  m_Name: Shirt
+  m_Name: Cloths07
   m_EditorClassIdentifier: 
-  ClassId: c4123c79-c2ff-4cd4-b119-de00318796d5
-  Name: Shirt
+  ClassId: c90b5e3b-61b0-4ba7-963e-24857e7f01f7
+  Name: Sport Shoes
   ItemType: 6
-  Cost: 100
-  Description: Shirt
-  Image: {fileID: 21300000, guid: b1c6bf42745971c42a94caf82afd483b, type: 3}
+  Cost: 320
+  Description: Sport Shoes
+  Image: {fileID: 21300000, guid: 61862f5454154184480acdb8f5a065b8, type: 3}

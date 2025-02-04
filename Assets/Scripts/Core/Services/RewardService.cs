@@ -5,15 +5,17 @@ using Zenject;
 
 public sealed class RewardService
 {
-    public delegate void RewardArguments(LootScriptableObject reward);
+    private readonly ItemsFactory _itemsFactory;
+    public delegate void RewardArguments(Item reward);
     public event RewardArguments OnGetReward;
 
     private readonly LootRepository _lootRepository;
 
     [Inject]
-    public RewardService(LootRepository lootRepository)
+    public RewardService(LootRepository lootRepository, ItemsFactory itemsFactory)
     {
         _lootRepository = lootRepository;
+        _itemsFactory = itemsFactory;
     }
 
     public void GetReward(ItemType type)
@@ -29,7 +31,7 @@ public sealed class RewardService
         }
 
         var index = UnityEngine.Random.Range(0, typedItems.Count());
-        var loot = typedItems[index];
-        OnGetReward?.Invoke(loot);
+        var item = _itemsFactory.Create(typedItems[index]);
+        OnGetReward?.Invoke(item);
     }
 }
