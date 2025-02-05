@@ -1,3 +1,4 @@
+using Core;
 using Core.Items;
 using Zenject;
 
@@ -18,5 +19,7 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<LootRepository>().AsSingle();
         Container.Bind<RewardService>().AsSingle();
         Container.Bind<ItemsFactory>().AsSingle();
+        Container.Bind<TimeManager>().AsSingle();
+        Container.Bind<EventScheduler>().AsSingle();
     }
 }

@@ -4,14 +4,14 @@ using Core.Items;
 public class GameManager
 {
     private readonly GameSceneManager _gameSceneManager;
-    public delegate void MoneyChangeArgs(int score);
+    public delegate void MoneyChangeArgs(float money);
     public event MoneyChangeArgs OnMoneyChange;
 
     public delegate void LootChangeArgs();
     public event LootChangeArgs OnLootChange;
 
-    public int TotalMoney { get; private set; }
-    public int CurrentMoney { get; private set; }
+    public float TotalMoney { get; private set; }
+    public float CurrentMoney { get; private set; }
 
     private List<Item> _loot;
 
@@ -21,9 +21,9 @@ public class GameManager
         _loot = new List<Item>();
     }
 
-    public void AddMoney(int score = 0)
+    public void AddMoney(float money = 0)
     {
-        CurrentMoney += score;
+        CurrentMoney += money;
         OnMoneyChange?.Invoke(CurrentMoney);
     }
 

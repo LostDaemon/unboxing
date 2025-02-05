@@ -1,6 +1,7 @@
 using System;
 using Core.Items;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class LootSceneController : MonoBehaviour
@@ -18,6 +19,11 @@ public class LootSceneController : MonoBehaviour
         _rewardService = rewardService;
     }
 
+    public void SkipScene()
+    {
+        SceneManager.LoadSceneAsync("WinScene");
+    }
+
     private void OnEnable()
     {
         _gameManager.OnMoneyChange += (value) => OnScoreChange(value);
@@ -30,14 +36,14 @@ public class LootSceneController : MonoBehaviour
         _rewardService.OnGetReward -= (item) => OnReward(item);
     }
 
-    private void OnScoreChange(int value)
+    private void OnScoreChange(float value)
     {
         _moneyIndicator.Value = value;
     }
 
     private void OnReward(Item item)
     {
-        //TODO!
+        _gameManager.AddLoot(item);
     }
 
     void Start()
